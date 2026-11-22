@@ -21,6 +21,7 @@ public class PageObjectLocal {
             dropdownInput = $(".dropdown"),
             toggleInput = $(".courier-type-selector-wrapper.wrapper").$(".toggle"),
             buttonInput =  $(".buttons"),
+             cookiesInput = $(byText("Понятно")),
             buttonPrimaryInput = $(".button.normal.primary"),
             closeButton = $("#modal .close"),
             checkProductInput  = $(".page-content");
@@ -35,6 +36,13 @@ public class PageObjectLocal {
             closeButton.click();}
         });
     return this;
+    }
+    public PageObjectLocal closeCookiesIfVisible() {
+        step("Соглашаемся на обработку файлов cookie, если появилась", () -> {
+            if (cookiesInput.is(visible)) {
+                cookiesInput.click();}
+        });
+        return this;
     }
 
     public PageObjectLocal openPage() {

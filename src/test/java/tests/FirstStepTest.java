@@ -22,12 +22,11 @@ public class FirstStepTest extends TestBase {
     @Test
     public void openSite() {
         pageObject.openPage();
-
         step("Закрываем рекламу", () ->
                 pageObject.closeAdIfVisible());
 
         step("Соглашаемся на обработку файлов cookie", () ->
-     $(byText("Понятно")).click());
+                pageObject.closeCookiesIfVisible());
 
         step("Выбираем город", () -> {
      $(".button.small.secondary").click();
