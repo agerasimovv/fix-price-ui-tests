@@ -1,0 +1,98 @@
+package pages;
+
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selectors;
+import com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$$;
+import static io.qameta.allure.Allure.step;
+
+public class PageObjectLocal {
+    private final String TEST_URL = "https://fix-price.com/";
+
+    private final SelenideElement
+            setProductInput = $(".input"),
+            addProductInput = $(".button-add-to-cart"),
+            deliveryProductInput = $(byText("Доставка")),
+            deliveryAddressInput = $(Selectors.byName("address")),
+            dropdownInput = $(".dropdown"),
+            toggleInput = $(".courier-type-selector-wrapper.wrapper").$(".toggle"),
+            buttonInput =  $(".buttons"),
+            buttonPrimaryInput = $(".button.normal.primary"),
+            closeButton = $("#modal .close"),
+            checkProductInput  = $(".page-content");
+    ElementsCollection
+            wrapperInput = $$(".courier-form .wrapper"),
+            buttonNormPrimaryInput = $$(".button.normal.primary.full-width");
+
+
+    public PageObjectLocal closeAdIfVisible() {
+        step("Закрываем рекламу, если появилась", () -> {
+        if (closeButton.is(visible)) {
+            closeButton.click();}
+        });
+    return this;
+    }
+
+    public PageObjectLocal openPage() {
+        step("Открываем страницу " + TEST_URL, () ->
+                open(TEST_URL));
+        return this;
+    }
+    public PageObjectLocal setProduct() {
+        step("Выбираем товар ", () ->
+                setProductInput.setValue("Контейнер").pressEnter());
+        return this;
+    }
+    public PageObjectLocal addProduct() {
+        step("Добавили товар", () ->
+                addProductInput.click());
+        return this;
+    }
+    public PageObjectLocal choiceDeliveryProduct() {
+        step("Выбираем способ получения товара", () ->
+                deliveryProductInput.click());
+        return this;
+    }
+
+    public PageObjectLocal deliveryAddress() {
+        step("Выбираем адрес", () -> {
+            deliveryAddressInput.setValue("Екатеринбург улица Щорса, дом 74");
+            dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 74")).click();
+            wrapperInput.get(0).$("input").setValue("2");
+            wrapperInput.get(1).$("input").setValue("1");
+            wrapperInput.get(2).$("input").setValue("30");});
+        return this;
+
+    }
+    public PageObjectLocal deliveryDayProduct() {
+        step("Выбиаем доставку от 1 дня ", () ->
+                toggleInput.shouldBe(clickable).click());
+        return this;
+    }
+    public PageObjectLocal confirmDelivery() {
+        step("Подтверждаем доставку ", () ->
+                buttonInput.click());
+        return this;
+    }
+    public PageObjectLocal infoWindow() {
+        step("Нажимаем хорошо ", () ->
+                buttonNormPrimaryInput.get(1).click());
+        return this;
+    }
+    public PageObjectLocal infoDelivery() {
+        step(" Нажимаем хорошо ", () ->
+                buttonPrimaryInput.click());
+        return this;
+    }
+    public PageObjectLocal checkProduct() {
+        step("Проверяем товар ", () ->
+                checkProductInput.shouldHave(text("Контейнер квадратный")));
+        return this;
+    }
+
+}
+

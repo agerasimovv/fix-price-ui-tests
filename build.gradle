@@ -1,0 +1,49 @@
+plugins {
+    id 'java-library'
+    id("io.qameta.allure") version "4.3.0"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(
+            "com.codeborne:selenide:7.18.2",
+            "org.junit.jupiter:junit-jupiter:5.10.2",
+            "net.datafaker:datafaker:2.7.0",
+            "io.qameta.allure:allure-selenide:2.35.5",
+            "io.qameta.allure:allure-junit5:2.35.5"
+    )
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+}
+
+allure {
+    version = "2.29.0" // Версия генератора отчетов Allure
+}
+
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+
+    // Передаём системные параметры в тесты
+    systemProperties(System.getProperties() as Map<String, ?>)
+
+    // Всегда запускаем тесты
+    outputs.upToDateWhen { false }
+
+    testLogging {
+        events "started", "skipped", "failed",
+                "standard_error", "standard_out"
+        exceptionFormat "short"
+    }
+}
+
+tasks.register('cleanAllureResults', Delete) {
+    delete layout.buildDirectory.dir('allure-results')
+
+}
