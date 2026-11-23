@@ -101,7 +101,9 @@ public class PageObjectLocal {
         step("Выбираем адрес", () -> {
             deliveryAddressInput.setValue("Екатеринбург улица Щорса, дом 74");
             dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 74"))
-                    .shouldBe(clickable,Duration.ofSeconds(10)).click();
+                    .shouldBe(visible,Duration.ofSeconds(15)).click();
+            deliveryAddressInput.shouldHave(value("г Екатеринбург, ул Щорса, д 74"),
+            Duration.ofSeconds(15));
             wrapperInput.get(0).$("input").setValue("2");
             wrapperInput.get(1).$("input").setValue("1");
             wrapperInput.get(2).$("input").setValue("30");});
