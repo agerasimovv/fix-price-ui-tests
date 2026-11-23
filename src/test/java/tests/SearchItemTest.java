@@ -18,7 +18,6 @@ public class SearchItemTest extends TestBase {
     @Test
     void addItem(){
         pageObject.prepareSite("Екатеринбург");
-        firstStep.openSite();
         pageObject.setProduct()
                 .addProduct()
                 .choiceDeliveryProduct()
