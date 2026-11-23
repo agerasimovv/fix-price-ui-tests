@@ -32,6 +32,11 @@ public class FirstStepTest extends TestBase {
      $(".input").setValue("Екатеринбург");
      $(".city").click();
      $(byText("Изменить город")).click();});
+
+        pageObject.openPage();
+        step("Закрываем рекламу", () ->
+                pageObject.closeAdIfVisible());
+
     }
 
 
