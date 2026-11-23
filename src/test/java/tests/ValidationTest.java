@@ -23,7 +23,7 @@ public class ValidationTest extends TestBase {
     @Link(name = "AutoTest(Validation)", url = "https://fix-price.com/")
     @Test
     void Validation(){
-        firstStep.openSite();
+        pageObject.prepareSite("Екатеринбург");
         step("Проверка валидации шапки ", () ->
         $$(".middle-wrapper").shouldHave(exactTexts(
                 HEADERS_TEXTS)));

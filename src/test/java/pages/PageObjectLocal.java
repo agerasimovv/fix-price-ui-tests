@@ -51,7 +51,6 @@ public class PageObjectLocal {
         closeAdIfVisible();
         closeCookiesIfVisible();
         selectCity(cityName);
-        openPage();
         closeAdIfVisible();
         return this;
     }
