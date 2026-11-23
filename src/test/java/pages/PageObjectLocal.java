@@ -21,7 +21,7 @@ public class PageObjectLocal {
             deliveryProductInput = $(byText("Доставка")),
             deliveryAddressInput = $(Selectors.byName("address")),
             dropdownInput = $(".dropdown"),
-            toggleInput = $(".courier-type-selector-wrapper.wrapper").$(".toggle"),
+            toggleInput = $(".courier-type-selector-wrapper.wrapper").$$(".toggle").get(1),
             buttonInput =  $(".buttons"),
              cookiesInput = $(byText("Понятно")),
             buttonPrimaryInput = $(".button.normal.primary"),
