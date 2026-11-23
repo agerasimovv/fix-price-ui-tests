@@ -16,6 +16,9 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public abstract class TestBase {
     @BeforeAll
     static void beforeAll() {
+        System.out.println("SELENIDE REMOTE: " + Configuration.remote);
+        System.out.println("PAGE LOAD TIMEOUT: " + Configuration.pageLoadTimeout);
+        System.out.println("ELEMENT TIMEOUT: " + Configuration.timeout);
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", Map.of(
                 "profile.default_content_setting_values.geolocation", 1
