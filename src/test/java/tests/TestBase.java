@@ -22,7 +22,7 @@ public abstract class TestBase {
         ));
         Configuration.browserCapabilities = options;
         Configuration.holdBrowserOpen = false;
-        Configuration.pageLoadTimeout = 10000;
+        Configuration.pageLoadTimeout = 20000;
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://fix-price.com";
         SelenideLogger.addListener("allure", new AllureSelenide().screenshots(true).savePageSource(true));
