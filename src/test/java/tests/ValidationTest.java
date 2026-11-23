@@ -14,7 +14,6 @@ import static io.qameta.allure.Allure.step;
 import static testdata.FooterTestData.*;
 
 public class ValidationTest extends TestBase {
-    FirstStepTest firstStep = new FirstStepTest();
     PageObjectLocal pageObject = new PageObjectLocal();
 
     @Feature("Входим на сайт")
