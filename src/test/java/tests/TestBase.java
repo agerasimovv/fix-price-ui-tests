@@ -24,7 +24,7 @@ public abstract class TestBase {
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.EAGER);
         options.setExperimentalOption("prefs", Map.of(
-                "profile.default_content_setting_values.geolocation", 1
+                "profile.default_content_setting_values.geolocation", 2
         ));
         Configuration.browserCapabilities = options;
         Configuration.pageLoadTimeout = 30000;
