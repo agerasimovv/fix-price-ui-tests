@@ -21,7 +21,7 @@ public class PageObjectLocal {
             deliveryProductInput = $(byText("Доставка")),
             deliveryAddressInput = $(Selectors.byName("address")),
             dropdownInput = $(".dropdown"),
-            toggleInput = $(".courier-type-selector-wrapper.wrapper").$$(".toggle").get(1),
+            toggleWrapInput = $(".courier-type-selector-wrapper.wrapper").$$(".toggle").get(1),
             buttonInput =  $(".buttons"),
              cookiesInput = $(byText("Понятно")),
             buttonPrimaryInput = $(".button.normal.primary"),
@@ -35,8 +35,10 @@ public class PageObjectLocal {
 
 
     ElementsCollection
-            wrapperInput = $$(".courier-form .wrapper"),
-            buttonNormPrimaryInput = $$(".button.normal.primary.full-width");
+            wrapperInput = $$(".courier-form .wrapper");
+    //buttonNormPrimaryInput = $$(".button.normal.primary.full-width");
+
+
 
 
     public PageObjectLocal selectCity(String cityName) {
@@ -107,7 +109,7 @@ public class PageObjectLocal {
     }
     public PageObjectLocal deliveryDayProduct() {
         step("Выбиаем доставку от 1 дня ", () ->
-                toggleInput.shouldBe(clickable).click());
+                toggleWrapInput.shouldBe(clickable).click());
         return this;
     }
     public PageObjectLocal confirmDelivery() {
@@ -115,11 +117,11 @@ public class PageObjectLocal {
                 buttonInput.click());
         return this;
     }
-    public PageObjectLocal infoWindow() {
-        step("Нажимаем хорошо ", () ->
-                buttonNormPrimaryInput.get(1).click());
-        return this;
-    }
+//    public PageObjectLocal infoWindow() {
+//        step("Нажимаем хорошо ", () ->
+//                buttonNormPrimaryInput.get(1).click());
+//        return this;
+//    }
     public PageObjectLocal infoDelivery() {
         step(" Нажимаем хорошо ", () ->
                 buttonPrimaryInput.click());

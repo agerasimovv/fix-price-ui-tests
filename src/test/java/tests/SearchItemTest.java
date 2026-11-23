@@ -23,7 +23,7 @@ public class SearchItemTest extends TestBase {
                 .deliveryAddress()
                 .deliveryDayProduct()
                 .confirmDelivery()
-                .infoWindow()
+                //.infoWindow()
                 .infoDelivery()
                 .checkProduct();
     }
