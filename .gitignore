@@ -4,7 +4,8 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 .kotlin
-/notification/
+#Allure Notification
+/notification/*!/notification/allure-notifications-4.11.1.jar
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
