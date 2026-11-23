@@ -31,8 +31,7 @@ public class FirstStepTest extends TestBase {
      $(".button.small.secondary").click();
      $(".input").setValue("Екатеринбург");
      $(".city").click();
-     $(byText("Изменить город")).click();
-     $("#modal .close").click();});
+     $(byText("Изменить город")).click();});
     }
 
 
