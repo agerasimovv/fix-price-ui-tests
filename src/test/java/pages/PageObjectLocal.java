@@ -24,11 +24,37 @@ public class PageObjectLocal {
              cookiesInput = $(byText("Понятно")),
             buttonPrimaryInput = $(".button.normal.primary"),
             closeButton = $("#modal .close"),
-            checkProductInput  = $(".page-content");
+            checkProductInput = $(".page-content"),
+            cityButton = $(".button.small.secondary"),
+            cityInput = $(".input"),
+            cityOption = $(".city"),
+            changeCityButton = $(byText("Изменить город"));
+
+
+
     ElementsCollection
             wrapperInput = $$(".courier-form .wrapper"),
             buttonNormPrimaryInput = $$(".button.normal.primary.full-width");
 
+
+    public PageObjectLocal selectCity(String cityName) {
+        step("Выбираем город " + cityName, () -> {
+            cityButton.click();
+            cityInput.setValue(cityName);
+            cityOption.click();
+            changeCityButton.click();
+        });
+        return this;
+    }
+    public PageObjectLocal prepareSite (String cityName) {
+        openPage();
+        closeAdIfVisible();
+        closeCookiesIfVisible();
+        selectCity(cityName);
+        openPage();
+        closeAdIfVisible();
+        return this;
+    }
 
     public PageObjectLocal closeAdIfVisible() {
         step("Закрываем рекламу, если появилась", () -> {

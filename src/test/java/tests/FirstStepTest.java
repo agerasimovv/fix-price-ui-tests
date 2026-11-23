@@ -18,25 +18,8 @@ public class FirstStepTest extends TestBase {
     @Story("Настроиваем местопложение,cookies")
     @Owner("agerasimovv")
     @Link(name = "AutoTest(FirstStep)", url = "https://fix-price.com/")
-    @Test
     public void openSite() {
-        pageObject.openPage();
-        step("Закрываем рекламу", () ->
-                pageObject.closeAdIfVisible());
-
-        step("Соглашаемся на обработку файлов cookie", () ->
-                pageObject.closeCookiesIfVisible());
-
-        step("Выбираем город", () -> {
-     $(".button.small.secondary").click();
-     $(".input").setValue("Екатеринбург");
-     $(".city").click();
-     $(byText("Изменить город")).click();});
-
-        pageObject.openPage();
-        step("Закрываем рекламу", () ->
-                pageObject.closeAdIfVisible());
-
+        pageObject.prepareSite("Екатеринбург");
     }
 
 

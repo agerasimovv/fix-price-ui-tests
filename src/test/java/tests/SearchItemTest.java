@@ -17,6 +17,7 @@ public class SearchItemTest extends TestBase {
     @Link(name = "AutoTest(AddProduct)", url = "https://fix-price.com/")
     @Test
     void addItem(){
+        pageObject.prepareSite("Екатеринбург");
         firstStep.openSite();
         pageObject.setProduct()
                 .addProduct()
