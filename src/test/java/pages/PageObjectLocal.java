@@ -9,7 +9,6 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 
 public class PageObjectLocal {
@@ -31,15 +30,9 @@ public class PageObjectLocal {
             cityInput = $("[data-test='currentCity']"),
             cityOption = $(".city"),
             changeCityButton = $(byText("Изменить город"));
-
-
-
     ElementsCollection
             wrapperInput = $$(".courier-form .wrapper");
     //buttonNormPrimaryInput = $$(".button.normal.primary.full-width");
-
-
-
 
     public PageObjectLocal selectCity(String cityName) {
         step("Выбираем город " + cityName, () -> {
