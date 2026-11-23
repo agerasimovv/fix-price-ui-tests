@@ -28,7 +28,7 @@ public class PageObjectLocal {
             closeButton = $("#modal .close"),
             checkProductInput = $(".page-content"),
             cityButton = $(".button.small.secondary"),
-            cityInput = $(".input"),
+            cityInput = $("[placeholder='Ваш город]"),
             cityOption = $(".city"),
             changeCityButton = $(byText("Изменить город"));
 
