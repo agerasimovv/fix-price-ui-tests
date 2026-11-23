@@ -11,6 +11,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Map;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+
 public abstract class TestBase {
     @BeforeAll
     static void beforeAll() {
@@ -30,5 +32,6 @@ public abstract class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.browserConsoleLogs();
         Attach.pageSource();
+        closeWebDriver();
     }
 }

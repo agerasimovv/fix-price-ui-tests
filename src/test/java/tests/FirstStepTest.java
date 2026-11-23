@@ -14,12 +14,10 @@ import static io.qameta.allure.Allure.step;
 public class FirstStepTest extends TestBase {
     PageObjectLocal pageObject = new PageObjectLocal();
 
-
     @Feature("Входим на сайт")
     @Story("Настроиваем местопложение,cookies")
     @Owner("agerasimovv")
     @Link(name = "AutoTest(FirstStep)", url = "https://fix-price.com/")
-    @Test
     public void openSite() {
         pageObject.openPage();
         step("Закрываем рекламу", () ->
