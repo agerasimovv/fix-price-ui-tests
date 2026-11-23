@@ -24,7 +24,6 @@ public abstract class TestBase {
                 "profile.default_content_setting_values.geolocation", 1
         ));
         Configuration.browserCapabilities = options;
-        Configuration.holdBrowserOpen = false;
         Configuration.pageLoadTimeout = 20000;
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://fix-price.com";
