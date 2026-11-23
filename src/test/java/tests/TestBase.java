@@ -24,7 +24,7 @@ public abstract class TestBase {
                 "profile.default_content_setting_values.geolocation", 1
         ));
         Configuration.browserCapabilities = options;
-        Configuration.pageLoadTimeout = 20000;
+        Configuration.pageLoadTimeout = 30000;
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://fix-price.com";
         SelenideLogger.addListener("allure", new AllureSelenide().screenshots(true).savePageSource(true));
