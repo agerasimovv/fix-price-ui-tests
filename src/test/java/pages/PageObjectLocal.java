@@ -4,6 +4,8 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -57,10 +59,12 @@ public class PageObjectLocal {
 
     public PageObjectLocal closeAdIfVisible() {
         step("Закрываем рекламу, если появилась", () -> {
-        if (closeButton.is(visible)) {
-            closeButton.click();}
+            if (closeButton.is(visible, Duration.ofSeconds(5))) {
+                closeButton.click();
+                closeButton.shouldNotBe(visible);
+            }
         });
-    return this;
+        return this;
     }
     public PageObjectLocal closeCookiesIfVisible() {
         step("Соглашаемся на обработку файлов cookie, если появилась", () -> {
