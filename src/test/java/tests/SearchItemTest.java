@@ -9,7 +9,6 @@ import pages.PageObjectLocal;
 
 public class SearchItemTest extends TestBase {
     PageObjectLocal pageObject = new PageObjectLocal();
-    FirstStepTest firstStep = new FirstStepTest();
 
     @Feature("Добавляем товар в корзину")
     @Story("Выбираем валидные данные доставки")
