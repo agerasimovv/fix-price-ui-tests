@@ -112,6 +112,7 @@ public class PageObjectLocal {
         step("Выбиаем доставку от 1 дня ", () ->
                 toggleWrapInput.shouldBe(clickable).click());
         Attach.screenshotAs("После выбора доставки");
+        sleep(120000);
         return this;
     }
     public PageObjectLocal confirmDelivery() {
@@ -126,9 +127,8 @@ public class PageObjectLocal {
 //        return this;
 //    }
     public PageObjectLocal infoDelivery() {
-        step(" Нажимаем хорошо ", () -> {
-                sleep(120000);
-                buttonPrimaryInput.click();});
+        step(" Нажимаем хорошо ", () ->
+                buttonPrimaryInput.click());
         return this;
     }
     public PageObjectLocal checkProduct() {
