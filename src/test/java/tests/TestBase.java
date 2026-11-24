@@ -16,7 +16,6 @@ public abstract class TestBase {
     @BeforeAll
     static void beforeAll() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--auto-open-devtools-for-tabs");
         options.setPageLoadStrategy(PageLoadStrategy.EAGER);
         Configuration.browserCapabilities = options;
         Configuration.pageLoadTimeout = 30000;
