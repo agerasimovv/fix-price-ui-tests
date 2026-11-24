@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import pages.PageObjectLocal;
 
 public class CitySelectionTest extends TestBase {
-    PageObjectLocal pageObject = new PageObjectLocal();
+    private final PageObjectLocal pageObject = new PageObjectLocal();
 
     @Feature("Настройка региона")
     @Story("Выбор города доставки")
@@ -18,7 +18,8 @@ public class CitySelectionTest extends TestBase {
     @Link(url = "https://fix-price.com/")
     @Test
     public void shouldSelectCity() {
-        pageObject.prepareSite("Екатеринбург");
+        pageObject.prepareSite("Екатеринбург")
+                .checkCity("Екатеринбург");
     }
 
 

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import pages.PageObjectLocal;
 
 public class ProductDeliveryTest extends TestBase {
-    PageObjectLocal pageObject = new PageObjectLocal();
+    private final PageObjectLocal pageObject = new PageObjectLocal();
 
     @Feature("Корзина и доставка")
     @Story("Добавление товара с выбором доставки")
@@ -25,7 +25,6 @@ public class ProductDeliveryTest extends TestBase {
                 .deliveryAddress()
                 .deliveryDayProduct()
                 .confirmDelivery()
-                //.infoWindow()
                 .infoDelivery()
                 .checkProduct();
     }

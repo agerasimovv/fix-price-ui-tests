@@ -29,8 +29,9 @@ public class PageObjectLocal {
             cityButton = $(".button.small.secondary"),
             cityInput = $("[data-test='currentCity']"),
             cityOption = $(".city"),
+            cityObtain =$(".city-obtain.spread"),
             changeCityButton = $(byText("Изменить город"));
-    ElementsCollection
+    private final ElementsCollection
             wrapperInput = $$(".courier-form .wrapper");
 
     public PageObjectLocal selectCity(String cityName) {
@@ -40,6 +41,11 @@ public class PageObjectLocal {
             cityOption.click();
             changeCityButton.click();
         });
+        return this;
+    }
+    public PageObjectLocal checkCity(String cityName){
+        step("Проверяем выбранный город" + cityName, () ->
+                cityObtain.shouldHave(exactText(cityName)));
         return this;
     }
 
@@ -98,6 +104,7 @@ public class PageObjectLocal {
     public PageObjectLocal deliveryAddress() {
         step("Выбираем адрес", () -> {
             deliveryAddressInput.setValue("Екатеринбург улица Щорса, дом 64");
+            //Временная задержка для стабилизации выбора адреса
             sleep(5000);
             dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 64"))
                     .shouldBe(visible, Duration.ofSeconds(15)).click();
@@ -136,7 +143,7 @@ public class PageObjectLocal {
     }
 
     public PageObjectLocal checkProduct() {
-        step("Проверяем отображения товара", () ->
+        step("Проверяем отображение товара", () ->
                 checkProductInput.shouldHave(text("Контейнер квадратный")));
         return this;
     }

@@ -15,7 +15,7 @@ import static io.qameta.allure.Allure.step;
 import static testdata.FooterTestData.*;
 
 public class NavigationContentTest extends TestBase {
-    PageObjectLocal pageObject = new PageObjectLocal();
+    private final PageObjectLocal pageObject = new PageObjectLocal();
 
     @Feature("Навигация сайта")
     @Story("Отображение элементов навигации")
@@ -25,13 +25,13 @@ public class NavigationContentTest extends TestBase {
     @Test
     void shouldDisplayExpectedNavigationAndFooterTexts(){
         pageObject.prepareSite("Екатеринбург");
-        step("Проверка содержимое шапки сайта ", () ->
+        step("Проверяем содержимое шапки сайта ", () ->
         $$(".middle-wrapper").shouldHave(exactTexts(
                 HEADERS_TEXTS)));
-        step(" Проверка основного меню навигации ", () ->
+        step(" Проверяем основное меню навигации ", () ->
         $$(".bottom-wrapper").shouldHave(exactTexts(
                 BOTTOM_WRAPPER_TEXTS)));
-        step("Поверка содержимого футера", () ->
+        step("Поверяем содержимоу футера", () ->
         $$(".menu-column:not(.social.menu-column)").shouldHave(exactTexts(
                 FOOTER_TEXTS)));
 
