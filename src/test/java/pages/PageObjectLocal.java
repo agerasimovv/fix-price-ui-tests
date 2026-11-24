@@ -29,7 +29,7 @@ public class PageObjectLocal {
             cityButton = $(".button.small.secondary"),
             cityInput = $("[data-test='currentCity']"),
             cityOption = $(".city"),
-            cityObtain =$(".city-obtain.spread"),
+            cityObtain =$(".geo"),
             changeCityButton = $(byText("Изменить город"));
     private final ElementsCollection
             wrapperInput = $$(".courier-form .wrapper");
