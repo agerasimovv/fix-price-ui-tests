@@ -9,6 +9,7 @@ build/
 !/notification/allure-notifications-4.11.1.jar
 ### IntelliJ IDEA ###
 .idea/modules.xml
+.idea-backup/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
