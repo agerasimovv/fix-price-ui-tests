@@ -22,7 +22,7 @@ public class PageObjectLocal {
             deliveryAddressInput = $(Selectors.byName("address")),
             dropdownInput = $(".dropdown"),
             toggleWrapInput = $(".courier-type-selector-wrapper.wrapper").$$(".toggle").get(0),
-            buttonInput =  $(".buttons"),
+            buttonInput =  $(".courier-form .buttons button"),
              cookiesInput = $(byText("Понятно")),
             buttonPrimaryInput = $(".button.normal.primary"),
             closeButton = $("#modal .close"),
@@ -101,6 +101,8 @@ public class PageObjectLocal {
                     .shouldBe(visible,Duration.ofSeconds(15)).click();
             sleep(3000);
             $(byText("Расширенный каталог")).shouldBe(visible,Duration.ofSeconds(20));
+            $(byText("от 1 дня")).shouldBe(visible,Duration.ofSeconds(20));
+            $(byText("Адрес не определен")).shouldBe(hidden,Duration.ofSeconds(20));
 
             deliveryAddressInput.shouldHave(value("г Екатеринбург, ул Щорса, д 64"));
             wrapperInput.get(0).$("input").setValue("2");
@@ -120,7 +122,10 @@ public class PageObjectLocal {
     }
     public PageObjectLocal confirmDelivery() {
         step("Подтверждаем доставку ", () ->
-                buttonInput.click());
+                buttonInput
+                        .shouldBe(visible,Duration.ofSeconds(20))
+                        .shouldBe(enabled,Duration.ofSeconds(20))
+                        .shouldHave(exactText("Доставить сюда")).click());
         Attach.screenshotAs("После подтверждения доставки");
         return this;
     }
