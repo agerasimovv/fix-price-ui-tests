@@ -99,7 +99,9 @@ public class PageObjectLocal {
             Duration.ofSeconds(15));
             wrapperInput.get(0).$("input").setValue("2");
             wrapperInput.get(1).$("input").setValue("1");
-            wrapperInput.get(2).$("input").setValue("30");});
+            wrapperInput.get(2).$("input").setValue("30");
+            $(".combi-selector").shouldBe(visible,Duration.ofSeconds(15));
+        });
         return this;
 
     }
