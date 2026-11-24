@@ -96,6 +96,7 @@ public class PageObjectLocal {
             deliveryAddressInput.setValue("Екатеринбург улица Щорса, дом 74");
             dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 74"))
                     .shouldBe(visible,Duration.ofSeconds(15)).click();
+            sleep(5000);
             deliveryAddressInput.shouldHave(value("г Екатеринбург, ул Щорса, д 74"),
             Duration.ofSeconds(15));
             wrapperInput.get(0).$("input").setValue("2");
