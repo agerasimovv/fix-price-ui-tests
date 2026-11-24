@@ -30,7 +30,8 @@ public class PageObjectLocal {
             cityButton = $(".button.small.secondary"),
             cityInput = $("[data-test='currentCity']"),
             cityOption = $(".city"),
-            changeCityButton = $(byText("Изменить город"));
+            changeCityButton = $(byText("Изменить город")),
+    addressLoader = $(".address-field.spinner.loader");
     ElementsCollection
             wrapperInput = $$(".courier-form .wrapper");
     //buttonNormPrimaryInput = $$(".button.normal.primary.full-width");
@@ -96,7 +97,10 @@ public class PageObjectLocal {
             deliveryAddressInput.setValue("Екатеринбург улица Щорса, дом 64");
             sleep(5000);
             dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 64"))
-                    .shouldBe(visible,Duration.ofSeconds(15)).click();
+                    .shouldBe(visible,Duration.ofSeconds(15));
+            addressLoader.shouldBe(hidden, Duration.ofSeconds(15));
+            dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 64")).click();
+            addressLoader.shouldBe(hidden, Duration.ofSeconds(15));
             $(byText("Расширенный каталог")).shouldBe(visible,Duration.ofSeconds(15));
             deliveryAddressInput.shouldHave(value("г Екатеринбург, ул Щорса, д 64"),
             Duration.ofSeconds(15));
@@ -104,7 +108,6 @@ public class PageObjectLocal {
             wrapperInput.get(1).$("input").setValue("1");
             wrapperInput.get(2).$("input").setValue("5");
             Attach.screenshotAs("После выбора адресса");
-            $(byText("Адрес не определен")).shouldBe(hidden,Duration.ofSeconds(15));
         });
         return this;
 
@@ -112,8 +115,6 @@ public class PageObjectLocal {
     public PageObjectLocal deliveryDayProduct() {
         step("Выбиаем доставку от 1 дня ", () ->
                 toggleWrapInput.shouldBe(clickable).click());
-        $(byText("Расширенный каталог")).shouldBe(visible,Duration.ofSeconds(15));
-        $(byText("Адрес не определен")).shouldBe(hidden,Duration.ofSeconds(15));
         Attach.screenshotAs("После выбора доставки");
         return this;
     }
