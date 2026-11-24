@@ -94,10 +94,9 @@ public class PageObjectLocal {
     public PageObjectLocal deliveryAddress() {
         step("Выбираем адрес", () -> {
             deliveryAddressInput.setValue("Екатеринбург улица Щорса, дом 64");
-            sleep(5000);
             dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 64"))
                     .shouldBe(visible,Duration.ofSeconds(15)).click();
-            sleep(5000);
+            $(byText("Расширенный каталог")).shouldBe(visible,Duration.ofSeconds(15));
             deliveryAddressInput.shouldHave(value("г Екатеринбург, ул Щорса, д 64"),
             Duration.ofSeconds(15));
             wrapperInput.get(0).$("input").setValue("2");
@@ -113,7 +112,6 @@ public class PageObjectLocal {
         step("Выбиаем доставку от 1 дня ", () ->
                 toggleWrapInput.shouldBe(clickable).click());
         Attach.screenshotAs("После выбора доставки");
-        sleep(120000);
         return this;
     }
     public PageObjectLocal confirmDelivery() {
