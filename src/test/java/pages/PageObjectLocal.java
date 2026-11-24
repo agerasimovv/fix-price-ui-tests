@@ -99,7 +99,6 @@ public class PageObjectLocal {
             sleep(5000);
             dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 64"))
                     .shouldBe(visible,Duration.ofSeconds(15)).click();
-            sleep(3000);
             $(byText("Расширенный каталог")).shouldBe(visible,Duration.ofSeconds(20));
             $(byText("от 1 дня")).shouldBe(visible,Duration.ofSeconds(20));
             $(byText("Адрес не определен")).shouldBe(hidden,Duration.ofSeconds(20));
