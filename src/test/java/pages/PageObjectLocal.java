@@ -126,8 +126,9 @@ public class PageObjectLocal {
 //        return this;
 //    }
     public PageObjectLocal infoDelivery() {
-        step(" Нажимаем хорошо ", () ->
-                buttonPrimaryInput.click());
+        step(" Нажимаем хорошо ", () -> {
+                sleep(120000);
+                buttonPrimaryInput.click();});
         return this;
     }
     public PageObjectLocal checkProduct() {
