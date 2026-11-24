@@ -93,15 +93,15 @@ public class PageObjectLocal {
 
     public PageObjectLocal deliveryAddress() {
         step("Выбираем адрес", () -> {
-            deliveryAddressInput.setValue("Екатеринбург улица Щорса, дом 74");
-            dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 74"))
+            deliveryAddressInput.setValue("Екатеринбург улица Щорса, дом 64");
+            dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 64"))
                     .shouldBe(visible,Duration.ofSeconds(15)).click();
             sleep(5000);
-            deliveryAddressInput.shouldHave(value("г Екатеринбург, ул Щорса, д 74"),
+            deliveryAddressInput.shouldHave(value("г Екатеринбург, ул Щорса, д 64"),
             Duration.ofSeconds(15));
             wrapperInput.get(0).$("input").setValue("2");
             wrapperInput.get(1).$("input").setValue("1");
-            wrapperInput.get(2).$("input").setValue("30");
+            wrapperInput.get(2).$("input").setValue("5");
             Attach.screenshotAs("После выбора адресса");
             $(byText("Адрес не определён")).shouldBe(hidden,Duration.ofSeconds(15));
         });
