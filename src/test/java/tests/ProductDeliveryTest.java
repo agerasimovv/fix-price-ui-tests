@@ -4,18 +4,20 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Link;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.PageObjectLocal;
 
-public class SearchItemTest extends TestBase {
+public class ProductDeliveryTest extends TestBase {
     PageObjectLocal pageObject = new PageObjectLocal();
 
-    @Feature("Добавляем товар в корзину")
-    @Story("Выбираем валидные данные доставки")
+    @Feature("Корзина и доставка")
+    @Story("Добавление товара с выбором доставки")
     @Owner("agerasimovv")
-    @Link(name = "AutoTest(AddProduct)", url = "https://fix-price.com/")
+    @DisplayName("Проверка добавления товара и настройки доставки")
+    @Link(url = "https://fix-price.com/")
     @Test
-    void addItem(){
+    void shouldConfigureProductDelivery(){
         pageObject.prepareSite("Екатеринбург");
         pageObject.setProduct()
                 .addProduct()
