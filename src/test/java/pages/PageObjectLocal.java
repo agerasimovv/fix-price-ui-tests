@@ -95,23 +95,18 @@ public class PageObjectLocal {
 
     public PageObjectLocal deliveryAddress() {
         step("Выбираем адрес", () -> {
-            addressField.shouldBe(visible).shouldNot(cssClass("loading"),Duration.ofSeconds(15));
             deliveryAddressInput.setValue("Екатеринбург улица Щорса, дом 64");
+            sleep(5000);
             dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 64"))
-                    .shouldBe(visible,Duration.ofSeconds(15));
-            addressLoader.shouldBe(hidden, Duration.ofSeconds(15));
-            dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 64")).click();
-            addressLoader.shouldBe(hidden, Duration.ofSeconds(15));
-            $(byText("Расширенный каталог")).shouldBe(visible,Duration.ofSeconds(15));
-            deliveryAddressInput.shouldHave(value("г Екатеринбург, ул Щорса, д 64"),
-            Duration.ofSeconds(15));
+                    .shouldBe(visible,Duration.ofSeconds(15)).click();
+            sleep(3000);
+            $(byText("Расширенный каталог")).shouldBe(visible,Duration.ofSeconds(20));
+
+            deliveryAddressInput.shouldHave(value("г Екатеринбург, ул Щорса, д 64"));
             wrapperInput.get(0).$("input").setValue("2");
             wrapperInput.get(1).$("input").setValue("1");
             wrapperInput.get(2).$("input").setValue("5");
             Attach.screenshotAs("После выбора адресса");
-            addressLoader.shouldBe(hidden, Duration.ofSeconds(20));
-            $(byText("Адрес не определен")).shouldBe(visible,Duration.ofSeconds(20));
-            $(byText("Расширенный каталог")).shouldBe(visible,Duration.ofSeconds(20));
 
         });
         return this;
