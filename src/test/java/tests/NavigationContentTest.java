@@ -25,13 +25,13 @@ public class NavigationContentTest extends TestBase {
     @Test
     void shouldDisplayExpectedNavigationAndFooterTexts(){
         pageObject.prepareSite("Екатеринбург");
-        step("Проверка валидации шапки ", () ->
+        step("Проверка содержимое шапки сайта ", () ->
         $$(".middle-wrapper").shouldHave(exactTexts(
                 HEADERS_TEXTS)));
-        step(" Проверка валадиции верхнего раздела заголовков ", () ->
+        step(" Проверка основного меню навигации ", () ->
         $$(".bottom-wrapper").shouldHave(exactTexts(
                 BOTTOM_WRAPPER_TEXTS)));
-        step("Поверка валидации нижнего раздела заголовков", () ->
+        step("Поверка содержимого футера", () ->
         $$(".menu-column:not(.social.menu-column)").shouldHave(exactTexts(
                 FOOTER_TEXTS)));
 
