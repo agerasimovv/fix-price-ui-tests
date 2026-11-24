@@ -103,7 +103,7 @@ public class PageObjectLocal {
             wrapperInput.get(1).$("input").setValue("1");
             wrapperInput.get(2).$("input").setValue("5");
             Attach.screenshotAs("После выбора адресса");
-            $(byText("Адрес не определён")).shouldBe(hidden,Duration.ofSeconds(15));
+            $(byText("Адрес не определен")).shouldBe(hidden,Duration.ofSeconds(15));
         });
         return this;
 
@@ -111,6 +111,8 @@ public class PageObjectLocal {
     public PageObjectLocal deliveryDayProduct() {
         step("Выбиаем доставку от 1 дня ", () ->
                 toggleWrapInput.shouldBe(clickable).click());
+        $(byText("Расширенный каталог")).shouldBe(visible,Duration.ofSeconds(15));
+        $(byText("Адрес не определен")).shouldBe(hidden,Duration.ofSeconds(15));
         Attach.screenshotAs("После выбора доставки");
         return this;
     }
