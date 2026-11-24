@@ -31,7 +31,8 @@ public class PageObjectLocal {
             cityInput = $("[data-test='currentCity']"),
             cityOption = $(".city"),
             changeCityButton = $(byText("Изменить город")),
-    addressLoader = $(".address-field .spinner.loader");
+    addressLoader = $(".address-field .spinner.loader"),
+    addressField = $(".address-field .field-frame");
     ElementsCollection
             wrapperInput = $$(".courier-form .wrapper");
     //buttonNormPrimaryInput = $$(".button.normal.primary.full-width");
@@ -94,6 +95,7 @@ public class PageObjectLocal {
 
     public PageObjectLocal deliveryAddress() {
         step("Выбираем адрес", () -> {
+            addressField.shouldBe(visible).shouldNot(cssClass("loading"),Duration.ofSeconds(15));
             deliveryAddressInput.setValue("Екатеринбург улица Щорса, дом 64");
             dropdownInput.$(byText("г Екатеринбург, ул Щорса, д 64"))
                     .shouldBe(visible,Duration.ofSeconds(15));
