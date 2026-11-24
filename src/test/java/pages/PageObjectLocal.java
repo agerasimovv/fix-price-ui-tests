@@ -109,6 +109,10 @@ public class PageObjectLocal {
             wrapperInput.get(1).$("input").setValue("1");
             wrapperInput.get(2).$("input").setValue("5");
             Attach.screenshotAs("После выбора адресса");
+            addressLoader.shouldBe(hidden, Duration.ofSeconds(20));
+            $(byText("Адрес не определен")).shouldBe(visible,Duration.ofSeconds(20));
+            $(byText("Расширенный каталог")).shouldBe(visible,Duration.ofSeconds(20));
+
         });
         return this;
 
