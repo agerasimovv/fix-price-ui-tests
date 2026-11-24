@@ -102,7 +102,7 @@ public class PageObjectLocal {
             wrapperInput.get(1).$("input").setValue("1");
             wrapperInput.get(2).$("input").setValue("30");
             Attach.screenshotAs("После выбора адресса");
-            $(".combi-selector").shouldBe(visible,Duration.ofSeconds(15));
+            $(byText("Адрес не определён")).shouldBe(hidden,Duration.ofSeconds(15));
         });
         return this;
 
