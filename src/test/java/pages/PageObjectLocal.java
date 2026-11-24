@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
+import helpers.Attach;
 
 import java.time.Duration;
 
@@ -100,6 +101,7 @@ public class PageObjectLocal {
             wrapperInput.get(0).$("input").setValue("2");
             wrapperInput.get(1).$("input").setValue("1");
             wrapperInput.get(2).$("input").setValue("30");
+            Attach.screenshotAs("После выбора адресса");
             $(".combi-selector").shouldBe(visible,Duration.ofSeconds(15));
         });
         return this;
@@ -108,11 +110,13 @@ public class PageObjectLocal {
     public PageObjectLocal deliveryDayProduct() {
         step("Выбиаем доставку от 1 дня ", () ->
                 toggleWrapInput.shouldBe(clickable).click());
+        Attach.screenshotAs("После выбора доставки");
         return this;
     }
     public PageObjectLocal confirmDelivery() {
         step("Подтверждаем доставку ", () ->
                 buttonInput.click());
+        Attach.screenshotAs("После подтверждения доставки");
         return this;
     }
 //    public PageObjectLocal infoWindow() {
