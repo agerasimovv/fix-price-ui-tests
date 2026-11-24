@@ -31,7 +31,7 @@ public class PageObjectLocal {
             cityInput = $("[data-test='currentCity']"),
             cityOption = $(".city"),
             changeCityButton = $(byText("Изменить город")),
-    addressLoader = $(".address-fiel .spinner.loader");
+    addressLoader = $(".address-field .spinner.loader");
     ElementsCollection
             wrapperInput = $$(".courier-form .wrapper");
     //buttonNormPrimaryInput = $$(".button.normal.primary.full-width");
