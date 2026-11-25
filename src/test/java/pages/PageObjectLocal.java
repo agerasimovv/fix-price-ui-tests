@@ -24,6 +24,7 @@ public class PageObjectLocal {
             buttonInput = $(".courier-form .buttons button"),
             cookiesInput = $(byText("Понятно")),
             buttonPrimaryInput = $(".button.normal.primary"),
+            buttonNormalPrimaryInput = $("button.normal.primary.full-width"),
             closeButton = $("#modal .close"),
             checkProductInput = $(".page-content"),
             cityButton = $(".button.small.secondary"),
@@ -97,7 +98,7 @@ public class PageObjectLocal {
 
     public PageObjectLocal choiceDeliveryProduct() {
         step("Выбираем способ получения товара", () ->
-                deliveryProductInput.click());
+       deliveryProductInput.click());
         return this;
     }
 
@@ -137,8 +138,15 @@ public class PageObjectLocal {
     }
 
     public PageObjectLocal infoDelivery() {
-        step("Подтверждаем информационное окно", () ->
-                buttonPrimaryInput.click());
+        step("Подтверждаем информационное окно", () -> {
+        if (buttonPrimaryInput.is(visible)) {
+            buttonPrimaryInput.click();
+        }
+
+        if(buttonNormalPrimaryInput.is(visible)){
+            buttonNormalPrimaryInput.click();
+        }
+    });
         return this;
     }
 
