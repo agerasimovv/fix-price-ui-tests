@@ -213,8 +213,8 @@ flowchart LR
 
 После выполнения тестов Jenkins сохраняет артефакты:
 
-- `allure-report.zip` — архив сформированного отчёта.
-- `allure-summary.json` — сводка результатов тестирования.
+- `allure-report.zip` - архив сформированного отчёта.
+- `allure-summary.json` - сводка результатов тестирования.
 
 <p align="center">
   <img src="media/screenshots/jenkins-build-details.png" width="900" alt="Jenkins Build Details"/>
